@@ -8,9 +8,14 @@
     <script src="js/jquery.js"></script>
     <script>
         $(function () {
-            $(".txt1").parents().css({"border": "2px dashed #00f"}); //.parents(): 모든 상위요소
-            $(".txt2").parents("div").css({"border": "2px solid #f00"}); //.parents("div"): 해당되는 모든 상위요소(div들만)
+            // $(".txt1").parents().css({"border": "2px dashed #00f"}); //.parents(): 모든 상위요소
+            // $(".txt2").parents("div").css({"border": "2px solid #f00"}); //.parents("div"): 해당되는 모든 상위요소(div들만)
             // $(".txt1").closest("div").css({"border": "2px dashed #00f"});  // .closest("div"): 가장 가까운 div에 적용한다.
+            
+            // > 아들 만 대상
+            // .children() 대상의 자식들에게 각각 적용
+            // $("#wrap > section").css({"border":"2px dashed #f00"});
+            $("#wrap > section").children().css({"border":"2px dashed #f00"});
             $("*").css({
                 "padding": "10px"
             });
@@ -27,6 +32,9 @@
             </div>
         </section>
         <section>
+            <div>
+                <p class="txt2">내용</p>
+            </div>
             <div>
                 <p class="txt2">내용</p>
             </div>
