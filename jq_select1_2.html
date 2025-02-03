@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+    <script>
+        $(function () {
+            // .css().css()이런식으로 두개이상의 스타일을 적용 할 수 있다.
+            $("#tit").css("background-color", "#ff0").css("border", "2px solid #f00");
+            $("#tit3, .tit").css("background-color", "#0ff").css("border", "2px dashed #f00"); //두가지를 한번에 적을수도있다
+            $("h2#aaa").css("background-color", "#0ff").css("border", "2px dashed #f00");
+            $("h2.aaa").css("background-color", "#0ff").css("border", "2px dashed #f00"); //아이디나 클래스를 두번째로 적으면 안띄운다
+            $("h2.aaa").css({"background-color": "#0ff", "border":"2px dashed #f00"}); //위랑 같은 내용
+        });
+    </script>
+</head>
+
+<body>
+    <h1>제이쿼리</h1>
+    <h2 id="tit">선택자1</h2>
+    <h2 id="aaa">선택자2</h2>
+    <h2 class="aaa">선택자3</h2>
+    <h3>직접 선택자</h3>
+</body>
+
+</html>

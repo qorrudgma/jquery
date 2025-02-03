@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+    <script>
+        $(function () {
+            // li를 추가하여 브릿에는 스타일이 안들어감
+            // $("#menu1 li:first").css({"background-color": "#ff0"});  // :first를 추가하여 첫번째에만 적용 :last는 마지막
+
+            //$("#menu1 li:even").css({"background-color": "#0ff"}); //홀수
+            // $("#menu1 li:odd").css({"background-color": "#ff0"}); //짝수
+
+            $("#menu1 li").eq(2).css({"background-color": "#ff0"}); //인덱스가 2인거에 적용
+            $("#menu1 li:lt(2)").css({"background-color": "#f0f"}); //인덱스가 2인거보다 작은것들에 적용
+            $("#menu1 li:gt(2)").css({"background-color": "#0f0"}); //인덱스가 2인거보다 큰것들에 적용
+
+            // $("li:first-of-type").css({"background-color":"#ff0"}); //li 무리에서 첫번째
+            // $("li:last-of-type").css({"background-color":"#0ff"}); //li 무리에서 마지막
+            $("#menu1 li:nth-child(1)").css({"background-color": "#ff0"}); //:nth-child(1): 해당요소에서 첫번째 요소
+            $("#menu1 li:nth-child(2n)").css({"border": "2px dashed #f00"}); //:nth-child(2n): 해당요소에서 짝수번째 요소
+            $("#menu1 li:nth-last-child(1)").css({"border": "2px dashed #f00"}); //:nth-child(2n): 해당요소에서 뒤에서 첫번째 요소
+            $("#menu1 li").slice(1,3).css({"background-color":"#ff0"}); //.slice(1,3): 인덱스가 1번에서 3번 전까지
+
+            // $("#menu1 li").slice(1,3).css({"background-color":"#ff0"}); //.slice(1,3): 인덱스가 1번에서 3번 전까지
+            $("li").slice(1,3).css({"background-color":"#ff0"}); //.slice(1,3): 인덱스가 1번에서 3번 전까지
+            $("li:only-child").css({"background-color":"#ff0"}); //하위 요소가 하나일경우만 적용
+            //여기서 li위에 처음꺼에만 적용?? 찾아보기
+        });
+    </script>
+</head>
+
+<body>
+    <h1>탐색 선택자</h1>
+    <ul id="menu1">
+        <li>내용1-1</li>
+        <li>내용1-2</li>
+        <li>내용1-3</li>
+        <li>내용1-4</li>
+    </ul>
+    <ul id="menu2">
+        <li>내용2-1</li>
+        <li>내용2-2</li>
+        <li>내용2-3</li>
+    </ul>
+    <ul id="menu2">
+        <li>내용3-1</li>
+    </ul>
+</body>
+
+</html>

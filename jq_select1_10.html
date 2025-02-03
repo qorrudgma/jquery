@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+    <script>
+        $(function () {
+            //스타일을 변수로 만든다
+            var style_1 = {
+                "background-color": "#0ff"
+                ,"border": "2px solid #f00"
+            }
+            var style_2 = {
+                "background-color": "#ff0"
+                ,"border": "2px dashed #f00"
+            }
+            // $(".txt2").css(style_1); 스타일을 변수로 처리함
+            // $(".txt2").prev().css(style_1); 앞내용이된다
+            // $(".txt2 + p").css(style_2); + 다음에 오는 해당요소
+            // $(".txt2").next().css(style_2); .next(): 다음오는 요소
+            // $(".txt2 + p").next().next().css(style_2);  갯수만큼 넘어감
+            // $(".txt2").prevAll().css(style_1); 이전 모든 것에 적용
+            // $(".txt2").nextAll().css(style_2); 모든 다음요소들에 적용
+            // $(".txt2").siblings().css(style_1); 본인을 제외한 형제들이 나온다
+            // $(".txt5").prevUntil(".title").css(style_1); .prevUntil(".title"): 해당요소 전까지 적용
+            // $(".txt5").nextUntil(".txt8").css(style_1); .nextUntil(".txt8"): 해당요서 전까지 적용
+            $(".txt2").css(style_2);
+        });
+    </script>
+</head>
+
+<body>
+    <div id="wrap">
+        <h1 class="title">선택자</h1>
+        <p>내용1</p>
+        <p class="txt2">내용2</p>
+        <p>내용3</p>
+        <p>내용4</p>
+        <p class="txt5">내용5</p>
+        <p>내용6</p>
+        <p>내용7</p>
+        <p class="txt8">내용8</p>
+    </div>
+</body>
+
+</html>
