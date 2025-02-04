@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/jquery/js/jquery.js"></script>
+    <script>
+        $(function () {
+            $(".btn1").click(function () {
+                // alert("클릭1");
+                // $(".btn1").css({"color": "#f00"});
+                $(".btn1").parent().next().css({"color": "#f00"});
+            });
+            // 위랑 같은거임 적는방법이 다른거
+            $(".btn1").on("click", function () {
+                // alert("클릭1");
+                $(".btn1").css({"color": "#f00"});
+            });
+            //이것도 위랑 같은 방법 적는거가 다른거
+            $("btn1").on({
+                "click": function () {
+                    $(".btn1").css({"color": "#f00"});
+                }
+            });
+            
+
+            $(".btn2").on({
+                "mouseover focus": function () { //이벤트 두개를씀
+                    // alert("over");
+                    $(".btn2").parent().next().css({"color": "#0f0"});//마우스가 올라오면 바뀐다, 텝키로 올라와도 바뀐다
+                },
+                "mouseout blur": function () {
+                    // alert("over");
+                    $(".btn2").parent().next().css({"color": "#000"}); //마우스 벗어나면 바뀐다, 텝키로 벗어나도 바뀐다
+                }
+            });
+
+            $(".btn1").click(); // click이벤트를 강제로 발생시킴
+            $(".btn2").trigger("mouseover");// mouseover이벤트를 강제로 발생시킴
+
+            $(".btn1").off("click"); //이벤트를 제거함
+            $(".btn2").off("mouseover focus"); //이벤트를 제거함
+        });
+    </script>
+</head> 
+
+<body>
+    <p>
+        <button class="btn1">버튼1</button>
+    </p>    
+    <p>내용</p>
+    <p>
+        <button class="btn2">버튼2</button>
+    </p>    
+    <p>내용</p>
+</body>
+
+</html>

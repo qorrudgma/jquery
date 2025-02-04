@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/jquery/js/jquery.js"></script>
+    <script>
+        $(function () {
+            // $("#use_id_1, #use_pw_1").on("focus",function () { //클릭이나 텝
+            $("#frm_1").on("focus",function () { //클릭이나 텝
+                $(this).css({"background-color":"pink"}); //this본인을 말함
+            });
+            // $("#use_id_1, #use_pw_1").on("blur",function () { //빠져나갔을때
+            $("#frm_1").on("blur",function () { //빠져나갔을때
+                $(this).css({"background-color":"#fff"});
+            });
+
+            //focus, blur는 하위를 선택하면 적용안되지만!
+            //focusin, focusout은 하위를 선택해도 적용된다!
+
+            // $("#use_id_2, #use_pw_2").on("focus",function () {
+            // $("#use_id_2, #use_pw_2").on("focusin",function () {
+            $("#frm_2").on("focusin",function () {
+                $(this).css({"background-color":"pink"});
+            });
+            // $("#use_id_2, #use_pw_2").on("blur",function () {
+            // $("#use_id_2, #use_pw_2").on("focusout",function () {
+            $("#frm_2").on("focusout",function () {
+                $(this).css({"background-color":"#fff"});
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <h1>focus / blur</h1>
+    <form action="#" id="frm_1">
+        <p>
+            <label for="use_id_1">ID</label>
+            <input type="text" name="use_id_1" id="use_id_1">
+        </p>
+        <p>
+            <label for="use_pw">PW</label>
+            <input type="password" name="use_pw_1" id="use_pw_1">
+        </p>
+    </form>
+    <h1>focusin / focusout</h1>
+    <form action="#" id="frm_2">
+        <p>
+            <label for="use_id_2">ID</label>
+            <input type="text" name="use_id_2" id="use_id_2">
+        </p>
+        <p>
+            <label for="use_pw_2">PW</label>
+            <input type="password" name="use_pw_2" id="use_pw_2">
+        </p>
+    </form>
+</body>
+
+</html>
