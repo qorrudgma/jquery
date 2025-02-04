@@ -17,23 +17,33 @@
                 "background-color": "#ff0"
                 ,"border": "2px dashed #f00"
             }
-            // $(".txt2").css(style_1); 스타일을 변수로 처리함
-            // $(".txt2").prev().css(style_1); 앞내용이된다
-            // $(".txt2 + p").css(style_2); + 다음에 오는 해당요소
-            // $(".txt2").next().css(style_2); .next(): 다음오는 요소
-            // $(".txt2 + p").next().next().css(style_2);  갯수만큼 넘어감
-            // $(".txt2").prevAll().css(style_1); 이전 모든 것에 적용
-            // $(".txt2").nextAll().css(style_2); 모든 다음요소들에 적용
-            // $(".txt2").siblings().css(style_1); 본인을 제외한 형제들이 나온다
-            // $(".txt5").prevUntil(".title").css(style_1); .prevUntil(".title"): 해당요소 전까지 적용
-            // $(".txt5").nextUntil(".txt8").css(style_1); .nextUntil(".txt8"): 해당요서 전까지 적용
-            $(".txt2").css(style_2);
+            // $(".txt2").css(style_1); //스타일을 변수로 처리함
+            // $(".txt2").prev().css(style_1); //해당 요소의 앞하나에 적용
+            // $(".txt2").prevAll().css(style_1); //해당 요소의 앞내용 전부에 적용
+            // $(".txt5").prevUntil(".title").css(style_1); //.prevUntil("n"): n요소 전까지 적용 ex) $("n").prevUntil("m"): n과 m사이의 요소들
+            // $(".txt2").next().css(style_2); //다음에 오는 요소에 적용(여러번 중복해서 사용가능)
+            // $(".txt2").next().next().css(style_2);  //갯수만큼 넘어감
+            // $(".txt2").nextAll().css(style_2); //다음에 오는 요소 전부에 적용
+            // $(".txt5").nextUntil(".txt8").css(style_1); //.nextUntil("n"): n요소 전까지 적용
+            // $(".txt2 + p").css(style_2); //$("n+m"): n다음에 오는 m요소에 적용
+            // $(".txt2").siblings().css(style_1); //본인을 제외한 형제요소들이 나온다
+
+            // $("#txt1").parents().css({"border": "2px dashed #00f"}); //.parents(): 모든 상위요소
+            // $("#txt2").parents("div").css({"border": "2px solid #f00"}); //.parents("div"): 해당되는 모든 상위요소(div들만)
+            // $("#txt1").closest("div").css({"border": "2px dashed #00f"});  // .closest("div"): 가장 가까운 div에 적용한다.
+            // > 아들 만 대상
+            // .children() 대상의 자식들에게 각각 적용
+            // $("#wrap > section").css({"border":"2px dashed #f00"});
+            // $("#wrap > section").children().css({"border":"2px dashed #f00"});
+            $("*").css({
+                "padding": "10px"
+            });
         });
     </script>
 </head>
 
 <body>
-    <div id="wrap">
+    <div>
         <h1 class="title">선택자</h1>
         <p>내용1</p>
         <p class="txt2">내용2</p>
@@ -43,6 +53,22 @@
         <p>내용6</p>
         <p>내용7</p>
         <p class="txt8">내용8</p>
+    </div>
+    <div id="wrap">
+        <h1 class="title">선택자</h1>
+        <section>
+            <div>
+                <p id="txt1">내용1</p>
+            </div>
+        </section>
+        <section>
+            <div>
+                <p id="txt2">내용2</p>
+            </div>
+            <div>
+                <p id="txt2">내용3</p>
+            </div>
+        </section>
     </div>
 </body>
 
