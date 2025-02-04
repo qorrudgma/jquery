@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/jquery/js/jquery.js"></script>
+    <script>
+        $(function () {
+            $("#wrap p:eq(2)").after("<p>After</p>"); //해당요소 다음에 추가한다
+            $("<p>insertAfter</p>").insertAfter("#wrap p:eq(1)");  //after와 위치를 반대로 한다 ##근데 이러면 그냥 위치 바꿔서 위에꺼로 쓰면 되는거아닌가?
+            $("#wrap p:eq(1)").before("<p>before</p>"); //해당요소 앞에 추가한다
+            $("<p>insertBefore</p>").insertBefore("#wrap p:eq(0)");
+        });
+    </script>
+</head>
+
+<body>
+    <div id="wrap">
+        <p>내용1</p>
+        <p>내용2</p>
+        <p>내용3</p>
+    </div>
+</body>
+
+</html>

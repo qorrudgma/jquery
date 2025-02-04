@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .aqua{
+            background-color: aqua;
+        }
+        .red{
+            background-color: red;
+        }
+        .green{
+            background-color: green;
+        }
+        .yellow{
+            background-color: yellow;
+        }
+    </style>
+    <script src="/jquery/js/jquery.js"></script>
+    <script>
+        $(function () {
+            $("#p1").addClass("aqua"); //클래스 추가
+            $("#p2").removeClass("red"); //클래스 삭제
+            $("#p3").toggleClass("green"); //클래스가 없으면 추가 있으면 삭제
+            $("#p4").toggleClass("green");
+            $("#p6").text($("#p5").hasClass("yellow"));//hasClass(): 해당클래스가있나? #p5에 있나 물어봄 있으니까 true 인데 그걸 text로 출력
+        });
+    </script>
+</head>
+
+<body>
+    <p id="p1">내용1</p>
+    <p id="p2" class="red">내용2</p>
+    <p id="p3">내용3</p>
+    <p id="p4" class="green">내용4</p>
+    <p id="p5" class="yellow">내용5</p>
+    <p id="p6">내용6</p>
+</body>
+
+</html>

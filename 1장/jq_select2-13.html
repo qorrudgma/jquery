@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/jquery/js/jquery.js"></script>
+    <script>
+        $(function () {
+            $("#inner_1 p:contains(내용1)").css({"background-color":"#ff0"}); //contains(내용1): 내용1 포함하는애
+            $("#inner_1 p:contains(strong)").css({"background-color":"#ff0"}); //strong은 텍스트가 아니라 태그라 못찾음
+            $("#inner_1 p:has(strong)").css({"background-color":"#f00"}); //strong을 포함하는 요소에 적용
+            $("#inner_1 p:has(내용3)").css({"background-color":"#f00"}); //내용3은 태그가 아님 텍스트라 못참음
+            // $("#outer_warp").css({"border":"1px dashed #00f"});
+            $("#outer_warp").contents().css({"border":"1px dashed #00f"}); //.contents(): 자식들에게만 적용
+            $("#inner_2 p").not(":first").css({"background-color":"#0f0"}); //.not(":first"): 첫번째가 아닌거
+            $("#inner_2 p").eq(2).end().css({"color":"#f00"}); //.end(): 앞에 필터링 제거 지금은 .eq(2)가 제거됨
+
+            $("#inner_3").find(".txt1").css({"background-color":"#ff0"}); //.find(): 해당 하위요소에서 있는것만 적용
+            // $("#inner_1 p").find(".txt2").css({"background-color":"#0ff"}); //하위가이니라 본인이라 안됌
+            $("#inner_3 p").filter(".txt2").css({"background-color":"#0ff"}); //.filter(): 하위가 아니라 해당 요소 중에 해당되는것들 적용
+        });
+    </script>
+</head>
+
+<body>
+    <div id="outer_warp">
+        <h1>콘텐츠 탐색 선택자</h1>
+        <section id="inner_1">
+            <h1>contains(), contents(), has()</h1>
+            <p><span>내용1</span></p>
+            <p><strong>내용2</strong></p>
+            <p><span>내용3</span></p>
+        </section>
+        <section id="inner_2">
+            <h1>not(), end()</h1>
+            <p>내용4</p>
+            <p>내용5</p>
+            <p>내용6</p>
+        </section>
+        <section id="inner_3">
+            <h2>find(), filter()</h2>
+            <p class="txt1">내용1</p>
+            <p class="txt2">내용2</p>
+        </section>
+    </div>
+</body>
+
+</html>

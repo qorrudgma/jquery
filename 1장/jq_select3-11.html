@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/jquery/js/jquery.js"></script>
+    <script>
+        $(function () {
+            // var copyObj = $(".box1");
+            // var copyObj = $(".box1").children(); //자식들이 나옴
+            var copyObj = $(".box1").children().clone(); //.clone()으로 복제를 한것이 copyObj으로 뒤에서 append를 써도 없어지지 않음
+            console.log(copyObj);
+
+            $(".box2").remove(); //해당요소삭제
+            $(".box3").empty(); //해당요소의 자식들이 삭제
+            // $(".box3").children().remove(); //위랑 같음
+
+            $(".box3").append(copyObj); //copyObj는 .box들의 자식들인데 그 자식들을 .box3번으로 이동했다
+
+
+
+        });
+    </script>
+</head>
+
+<body>
+    <div class="box1">
+        <p>내용1</p>
+        <p>내용2</p>
+    </div>
+    <div class="box2">
+        <p>내용3</p>
+        <p>내용4</p>
+    </div>
+    <div class="box3">
+        <p>내용5</p>
+        <p>내용6</p>
+    </div>
+
+</body>
+
+</html>
