@@ -21,12 +21,17 @@
         }
 
         section {
+            display: none;
             max-width: 800px;
             margin: 20px auto;
             background: white;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        section.active {
+            display: block;
         }
 
         footer {
@@ -89,12 +94,12 @@
     </style>
     <script src="/jquery/js/jquery.js"></script>
     <script>
-        $(function () {
+        $(document).ready(function () {
 
-            $("section").hide();
-            $("#login").show();
+            // $("section").hide();
+            // $("#login").show();
 
-
+            //방법1
             // $(".menu_login").on("click", function () {
             //     $("#login").fadeIn(0, "swing", function () {
             //         $("#member").hide();
@@ -127,34 +132,37 @@
             //     });
             // });
 
+            //방법2
+            // $("#menu button").on("click", function () {
+
+            //     if ($(this).hasClass("menu_login")) {
+            //         $("section").hide();
+            //         $("#login").show();
+            //     } else if ($(this).hasClass("menu_member")) {
+            //         $("section").hide();
+            //         $("#member").show();
+            //     } else if ($(this).hasClass("menu_product")) {
+            //         $("section").hide();
+            //         $("#product").show();
+            //     } else if ($(this).hasClass("menu_store")) {
+            //         $("section").hide();
+            //         $("#store").show();
+            //     }
+            // });
+
+            //방법3 css에 section에 넣어서 disply:none;을 넣어서 가려놓고 
+            //이런 느낌
             $("#menu button").on("click", function () {
+                $("section").removeClass("active");
 
-                if ($(this).hasClass("menu_login")) {
-                    $("#login").show();
-                    $("#member").hide();
-                    $("#product").hide();
-                    $("#store").hide();
-                } else if ($(this).hasClass("menu_member")) {
-                    $("#login").hide();
-                    $("#member").show();
-                    $("#product").hide();
-                    $("#store").hide();
-                } else if ($(this).hasClass("menu_product")) {
-                    $("#login").hide();
-                    $("#member").hide();
-                    $("#product").show();
-                    $("#store").hide();
-                } else if ($(this).hasClass("menu_store")) {
-                    $("#login").hide();
-                    $("#product").hide();
-                    $("#member").hide();
-                    $("#store").show();
-                }
-            })
+                var target = $(this).data("section");
+                $("#" + target).addClass("active");
+
+            });
 
 
-
-
+            //active클래스를 버튼 누른것마다 section에 추가해서 section.active에는 display:block;을 추가해서 보이게 만든다
+            //각 방법마다 어떤방법이 더 좋은건지 알아보기 1은 하드 코딩이라 제일 안좋음 방법2랑 3은 어떤게 더 좋은건지 알아보기
         });
 
     </script>
@@ -170,7 +178,6 @@
         <button class="menu_member">회원정보</button>
         <button class="menu_product">상품등록</button>
         <button class="menu_store">점포등록</button>
-
     </div>
 
     <!-- 로그인 -->
