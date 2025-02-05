@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/jquery/jquery/js/jquery.js"></script>
+    <script>
+        $(function () {
+            $(document).on("keydown", keyEventFnc); //모든키를 눌렀을떄 발생하는키
+            function keyEventFnc(e) {
+                // alert("777");
+                // alert(e.keyCode); //keyCode: 키마다 있는 코드
+
+                var direct = "";
+
+                switch (e.keyCode) {
+                    case 37:
+                        direct = "LEFT";
+                        break;
+                    case 38:
+                        direct = "TOP";
+                        break;
+                    case 39:
+                        direct = "RIGHT";
+                        break;
+                    case 40:
+                        direct = "BOTTOM";
+                        break;
+                }
+                
+                if (direct) { //??
+                    $("#user_id").val(direct);
+                } //??
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <p>
+        <input type="text" name="user_id" id="user_id">
+    </p>
+</body>
+
+</html>

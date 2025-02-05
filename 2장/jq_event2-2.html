@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/jquery/jquery/js/jquery.js"></script>
+    <script>
+        $(function () {
+            // $("#btn1").data({"text":"jquery"}).on({"mouseover":overFnc}); //data: text에 jquery 설정
+            //.data(): 키랑 값을 저장해준다 적을때 키적으면 값 출력할수있다 
+            $("#btn1").data({"text":"jquery"}).on({"mouseover":overFnc, "mouseout":outFnc});
+            //버튼1에 데이터 키/값 저장해둠 그리고 마우스 올릴시 overFnc 실행 나가면 outFnc 이거 실행 아래에서 이 함수 두개 실행 어케하는지 적음
+            $("#btn2").data({"text":"welcome!"}).on({"mouseover":overFnc, "mouseout":outFnc}); 
+
+            function overFnc() {
+                $(".txt").text($(this).data("text"));
+            }
+            function outFnc() {
+                $(".txt").text("");
+            }
+
+        });
+    </script>
+</head>
+
+<body>
+    <p>
+        <button id="btn1">버튼1</button>
+    </p>
+    <p>
+        <button id="btn2">버튼2</button>
+    </p>
+    <p class="txt"></p>
+</body>
+
+</html>
