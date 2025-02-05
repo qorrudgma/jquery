@@ -87,21 +87,81 @@
             margin: 10px auto;
         }
     </style>
+    <script src="/jquery/js/jquery.js"></script>
     <script>
         $(function () {
-            $("#menu_login").on("click",function () {
-                $(".#login").fadeIn(1000,"swing",function () {
+
+            // $("#login").show();
+            // $("#member").hide();
+            // $("#product").hide();
+            // $("#store").hide();
+
+            // $(".menu_login").on("click", function () {
+            //     $("#login").fadeIn(0, "swing", function () {
+            //         $("#member").hide();
+            //         $("#product").hide();
+            //         $("#store").hide();
+            //     });
+            // });
+
+            // $(".menu_member").on("click", function () {
+            //     $("#member").fadeIn(0, "swing", function () {
+            //         $("#login").hide();
+            //         $("#product").hide();
+            //         $("#store").hide();
+            //     });
+            // });
+
+            // $(".menu_product").on("click", function () {
+            //     $("#product").fadeIn(0, "swing", function () {
+            //         $("#login").hide();
+            //         $("#member").hide();
+            //         $("#store").hide();
+            //     });
+            // });
+
+            // $(".menu_store").on("click", function () {
+            //     $("#store").fadeIn(0, "swing", function () {
+            //         $("#login").hide();
+            //         $("#product").hide();
+            //         $("#member").hide();
+            //     });
+            // });
+
+            $("#menu button").on("click", function () {
+                $("#login").show();
+                $("#member").hide();
+                $("#product").hide();
+                $("#store").hide();
+
+                if ($(this).hasClass(".menu_login")) {
+                    $("#login").show();
                     $("#member").hide();
                     $("#product").hide();
                     $("#store").hide();
-                });
-            });
-
+                } else if ($(this).hasClass(".menu_member")) {
+                    $("#login").hide();
+                    $("#member").show();
+                    $("#product").hide();
+                    $("#store").hide();
+                } else if ($(this).hasClass(".menu_product")) {
+                    $("#login").hide();
+                    $("#member").hide();
+                    $("#product").show();
+                    $("#store").hide();
+                } else if ($(this).hasClass(".menu_store")) {
+                    $("#login").hide();
+                    $("#product").hide();
+                    $("#member").hide();
+                    $("#store").show();
+                }
+            })
 
 
 
 
         });
+
     </script>
 </head>
 
@@ -111,10 +171,10 @@
     </header>
 
     <div id="menu">
-        <button id="menu_login">로그인</button>
-        <button id="menu_member">회원정보</button>
-        <button id="menu_product">상품등록</button>
-        <button id="menu_store">점포등록</button>
+        <button class="menu_login">로그인</button>
+        <button class="menu_member">회원정보</button>
+        <button class="menu_product">상품등록</button>
+        <button class="menu_store">점포등록</button>
 
     </div>
 
