@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .content{
+            width: 400px;
+            background-color: #eee;
+        }
+    </style>
+    <script src="/jquery/js/jquery.js"></script>
+    <script>
+        $(function () {
+            $(".btn2").hide(); //해당요소를 숨김
+            $(".btn1").on("click",function () {
+                $(".box").slideUp(1000,"linear",function () { //1초동안 일정한 속도로 접힘
+                    // alert("box run~!"); //콜백함수 (실행후 실행)
+                    $(".btn2").show(1000, function () { //이렇게 순서 지정
+                        $(".btn1").hide(1000);
+                    });
+                });
+            });
+
+            $(".btn2").on("click",function () {
+                $(".box").fadeIn(1000,"swing",function () { //1초동안 위로 시작, 끝은 느리게, 중간은 빠르게 표시됨
+                    $(".btn2").hide();
+                    $(".btn1").show();
+                });
+            });
+
+            $(".btn3").on("click",function () {
+                $(".box").slideToggle(1000,"swing"); //펼쳐져있으면 접히고 접혀있으면 펼쳐짐
+            });
+
+            $(".btn4").on("click",function () {
+                $(".box").fadeTo("fast",0.3); //70%의 투명도를 가짐
+            });
+
+            $(".btn5").on("click",function () {
+                $(".box").fadeTo("fast",1); //0%의 투명도를 가짐
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <p>
+        <button class="btn1">slideUp</button>
+        <button class="btn2">fadeIn</button>
+    </p>
+    <p>
+        <button class="btn3">toggleSlide</button>
+    </p>
+    <p>
+        <button class="btn4">fadeTo(0.3)</button>
+        <button class="btn5">fadeTo(1)</button>
+    </p>
+    <div class="box">
+        <div class="content">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente ex ad optio. Quibusdam pariatur ullam iusto libero beatae odit, delectus eveniet. Blanditiis reprehenderit eaque autem, veniam minus quis temporibus rerum.
+        </div>
+    </div>
+</body>
+
+</html>
