@@ -91,10 +91,9 @@
     <script>
         $(function () {
 
-            // $("#login").show();
-            // $("#member").hide();
-            // $("#product").hide();
-            // $("#store").hide();
+            $("section").hide();
+            $("#login").show();
+
 
             // $(".menu_login").on("click", function () {
             //     $("#login").fadeIn(0, "swing", function () {
@@ -129,27 +128,23 @@
             // });
 
             $("#menu button").on("click", function () {
-                $("#login").show();
-                $("#member").hide();
-                $("#product").hide();
-                $("#store").hide();
 
-                if ($(this).hasClass(".menu_login")) {
+                if ($(this).hasClass("menu_login")) {
                     $("#login").show();
                     $("#member").hide();
                     $("#product").hide();
                     $("#store").hide();
-                } else if ($(this).hasClass(".menu_member")) {
+                } else if ($(this).hasClass("menu_member")) {
                     $("#login").hide();
                     $("#member").show();
                     $("#product").hide();
                     $("#store").hide();
-                } else if ($(this).hasClass(".menu_product")) {
+                } else if ($(this).hasClass("menu_product")) {
                     $("#login").hide();
                     $("#member").hide();
                     $("#product").show();
                     $("#store").hide();
-                } else if ($(this).hasClass(".menu_store")) {
+                } else if ($(this).hasClass("menu_store")) {
                     $("#login").hide();
                     $("#product").hide();
                     $("#member").hide();
